@@ -14,20 +14,25 @@ int main(){
         cin >> b;
         arr1.push_back(b);
     }
+    bool tf = false;
     sort(arr1.begin(), arr1.end());
     for (int i = 0; i <= a; i++)
     {
-        for (int ii = 0; ii <= a; ii++)
+        tf = false;
+        for (int ii = 0; ii < a; ii++)
         {
             if (i == arr1[ii])
             {
+                tf = true;
                 break;
-            } else {
-                
             }
-            
         }
-        
+        if (tf == true) {
+            continue;
+        } else {
+            cout << i;
+            return 0;
+        }
     }
     
     
