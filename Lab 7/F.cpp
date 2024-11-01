@@ -30,7 +30,6 @@ int main()
             {
                 max = arr[i];
                 counter++;
-                // cout << max << endl;
             }
             
         }
