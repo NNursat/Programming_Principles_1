@@ -1,26 +1,53 @@
-#include <iostream>
-#include <vector>
-#include <set>
-#include <cstdlib>
-#include <algorithm>
-#include <sstream>
-using namespace std;
+    #include <iostream>
+    #include <vector>
+    #include <set>
+    #include <cstdlib>
+    #include <algorithm>
+    #include <sstream>
+    using namespace std;
 
-int main()
-{
-    vector<long long> numbers;
-    string input_line;
-    
-    getline(cin, input_line);
+    int main()
+    {
+        string s;
+        getline(cin, s);
 
-    stringstream ss(input_line);
-    long long number;
-    while (ss >> number) {
-        numbers.push_back(number); 
+        string a;
+        getline(cin, a);
+
+        vector<int> V;
+        string temp = "";
+        for(char i : s){
+            if(i == ' '){
+                V.push_back(stoi(temp));
+                temp = "";
+            }
+            temp += i;
+        }
+        
+        if(!temp.empty()){
+            V.push_back(stoi(temp));
+            temp = "";
+        }
+
+        for(char i: a){
+            if(i == ' '){
+                V.push_back(stoi(temp));
+                temp = "";
+            } else {
+                temp += i;
+            }
+        }
+
+        if(!temp.empty()){
+            V.push_back(stoi(temp));
+            temp = "";
+        }
+
+        set<int> un;
+        for(int i: V){
+            un.insert(i);
+        }
+
+
+        cout << un.size();
     }
-
-    set<long long> set_num(numbers.begin(), numbers.end());
-
-    cout << set_num.size();
-    
-}
