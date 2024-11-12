@@ -10,33 +10,29 @@ using namespace std;
 int main(){
     int n;
     cin >> n;
-    vector<int> arr_odd;
-    vector<int> arr_even;
-    int temp = 0;
+
+    // map<int, int> arr;
+    vector<pair<int, int>> arr;
+    int x, y;
+
     for (int i = 0; i < n; i++)
     {
-        cin >> temp;
-        if (temp % 2 == 0)
-        {
-            arr_even.push_back(temp);
-            continue;
-        }
-        arr_odd.push_back(temp);
-        
+        cin >> x >> y;
+        arr.push_back(make_pair(x, y));
     }
 
-    sort(arr_even.begin(), arr_even.end());
-    sort(arr_odd.begin(), arr_odd.end());
-    reverse(arr_even.begin(), arr_even.end());
+    sort(arr.begin(), arr.end());
 
-
-    for (int i = 0; i < arr_even.size(); i++)
+    for (int i = 0; i < arr.size(); i++)
     {
-        cout << arr_even[i] << " ";
+        cout << arr[i].first << " ";
+        cout << arr[i].second << endl;
     }
+    
 
-    for (int i : arr_odd)
-    {
-        cout << i << " ";
-    }
+    // for (map<int, int> :: iterator it = arr.begin(); it != arr.end(); ++it){
+    //     cout << it->first << " ";
+    //     cout << it->second << endl;
+    // }    
+
 }
